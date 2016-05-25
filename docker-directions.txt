@@ -1,0 +1,51 @@
+Run a docker:
+install for win:
+https://www.docker.com/products/docker-toolbox
+
+Install steps:
+https://docs.docker.com/windows/step_one/
+
+cd /c/mydocs/Newworld/git/micro-docker-test-master   --first test repository, downloaded as zip from github and copied into this directory.
+
+touch Dockerfile     --create a file
+
+-- add all the stuff to the Dockerfile, either vi the file, use regular windows to edit the file, or whatever you prefer.
+notepad Dockerfile&  --to open the file created in the shell for edit in normal notepad
+vi Dockerfile
+
+--build the new container with your additions.
+docker build -t micro-docker-test .   --don't forget the dot (to use current dir)
+
+
+docker images --to see what images are installed on your machine, your new one should be listed
+
+docker run micro-docker-test       --to run the image you just built.
+docker run -t -i micro-docker-test /bin/bash
+         -- -t to allocate a pseudo tty (a terminal)
+         -- -i to keep stdin open to interact with it
+         -- image name, then /bin/bash to run the bash shell
+
+
+docker ps  -- to do equivalent of ps in unix to see what containers you have running, 
+           -- add -q to only show the container ID's.
+
+docker stop containerID# -- to stop a container
+
+--note, you have to add an argument to the run command to get a console to come up, provide a command.  Alternately you can put a "CMD" into your Dockerfile to set default behavior.
+
+--example:  CMD /usr/games/example -a
+
+--another example:  docker run -d micro-docker-test /usr/sbin/httpd -DFOREGROUND 
+
+
+
+-- add -rm switch to the docker run command if you want the container to exit after running whatever you had in the CMD for the build
+
+docker rm ID# --to manually remove the container instance. 
+
+docker help run --to see list of all run options
+
+
+
+
+docker run --link microservicesexamples_mongodb_1:mongodb -i -t mongo:3.0.4 /usr/bin/mongo --host mongodb
