@@ -1,0 +1,38 @@
+faker notes:  to install on a docker, use pip
+
+
+faker [-h] [--version] [-o output]
+      [-l {bg_BG,cs_CZ,...,zh_CN,zh_TW}]
+      [-r REPEAT] [-s SEP]
+      [fake [fake ...]]
+Where:
+
+faker: is the script when installed in your environment, in development you could use python -m faker instead
+-h, --help: shows a help message
+--version: shows the program’s version number
+-o FILENAME: redirects the output to the specified filename
+-l {bg_BG,cs_CZ,...,zh_CN,zh_TW}: allows use of a localized provider
+-r REPEAT: will generate a specified number of outputs
+-s SEP: will generate the specified separator after each generated output
+fake: is the name of the fake to generate an output for, such as name, address, or text
+[fake ...]: is an optional comma-separated list of field names to pass to the fake, such as ssn,birthday when the profile fake is used
+Examples:
+
+$ faker address
+968 Bahringer Garden Apt. 722
+Kristinaland, NJ 09890
+
+$ faker -l de_DE address
+Samira-Niemeier-Allee 56
+94812 Biedenkopf
+
+$ faker profile ssn,birthdate
+{'ssn': u'628-10-1085', 'birthdate': '2008-03-29'}
+
+$ faker -r=3 -s=";" name
+Willam Kertzmann
+;
+Josiah Maggio
+;
+Gayla Schmitt
+;
