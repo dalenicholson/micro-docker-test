@@ -1,4 +1,12 @@
 # micro-docker-test
-A small microservice test.
+Dale's tesing area for various docker images
 
-A small microservice that does the most basic function as an exercise to test other implementation concerns.
+
+
+
+
+
+## Run the Tensorflow container
+
+    $ docker run -it -p 8888:8888 dcnicholson/tensorflow/tensorflow
+
