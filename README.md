@@ -10,3 +10,4 @@ Dale's tesing area for various docker images
 
     $ docker run -it -p 8888:8888 dcnicholson/tensorflow/tensorflow
 
+test
